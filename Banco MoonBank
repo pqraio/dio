@@ -3,50 +3,47 @@ import java.util.List;
 
 public class Banco {
 
-	private String nome;
-	private List<Conta> contas;
+    private String nome;
+    private List<Conta> contas;
 
-	// Construtor que inicializa o nome e cria uma lista de contas
-	public Banco(String nome) {
-		this.nome = nome;
-		this.contas = new ArrayList<>(); // Inicializa a lista de contas
-	}
+    // Construtor que inicializa o nome e cria uma lista de contas
+    public Banco(String nome) {
+        this.nome = nome;
+        this.contas = new ArrayList<>(); // Inicializa a lista de contas
+    }
 
-	// Getters e setters
-	public String getNome() {
-		return nome;
-	}
+    // Getters e setters
+    public String getNome() {
+        return nome;
+    }
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-	public List<Conta> getContas() {
-		return contas;
-	}
+    public List<Conta> getContas() {
+        return contas;
+    }
 
-	public void setContas(List<Conta> contas) {
-		this.contas = contas;
-	}
+    public void setContas(List<Conta> contas) {
+        this.contas = contas;
+    }
 
-	// Método para adicionar uma conta ao banco
-	public void adicionarConta(Conta conta) {
-		contas.add(conta);
-	}
+    // Método para adicionar uma conta ao banco
+    public void adicionarConta(Conta conta) {
+        contas.add(conta);
+    }
 
-	// Método para remover uma conta do banco
-	public void removerConta(Conta conta) {
-		contas.remove(conta);
-	}
+    // Método para remover uma conta do banco
+    public void removerConta(Conta conta) {
+        contas.remove(conta);
+    }
 }
 
-// Exemplo de criação de uma instância de Banco
+// Classe Main fora da classe Banco
 public class Main {
-	public static void main(String[] args) {
-		// Cria uma instância do banco com o nome "MoonBank"
-		Banco banco = new Banco("MoonBank");
-		
-		// Aqui você pode adicionar mais código para testar ou usar o banco
-		System.out.println("Banco criado: " + banco.getNome());
-	}
+    public static void main(String[] args) {
+        Banco banco = new Banco("MoonBank");
+        System.out.println(banco.getNome());
+    }
 }
