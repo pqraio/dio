@@ -61,26 +61,3 @@ public abstract class Conta implements IConta {
 		System.out.println(String.format("Saldo: %.2f", this.saldo));
 	}
 }
-public interface IConta {
-	void sacar(double valor);
-	void depositar(double valor);
-	void transferir(double valor, IConta contaDestino);
-}
-public class ContaCorrente extends Conta {
-
-	public ContaCorrente(Cliente cliente) {
-		super(cliente);
-	}
-
-	@Override
-	public void sacar(double valor) {
-		double taxa = 0.1; // Exemplo de taxa de saque
-		super.sacar(valor + taxa);
-	}
-
-	// Método para imprimir informações específicas da Conta Corrente
-	public void imprimirInfosEspecificas() {
-		System.out.println("=== Conta Corrente ===");
-		imprimirInfosComuns();
-	}
-}
