@@ -1,13 +1,50 @@
 public class Cliente {
 
-	private String nome;
+    private String nome;
+    private String cpf; // Adiciona um campo para CPF
+    private List<Conta> contas; // Lista de contas associadas ao cliente
 
-	public String getNome() {
-		return nome;
-	}
+    // Construtor que inicializa o nome e CPF do cliente
+    public Cliente(String nome, String cpf) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.contas = new ArrayList<>(); // Inicializa a lista de contas
+    }
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    // Getter e Setter para nome
+    public String getNome() {
+        return nome;
+    }
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    // Getter e Setter para CPF
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    // Getter e Setter para contas
+    public List<Conta> getContas() {
+        return contas;
+    }
+
+    public void setContas(List<Conta> contas) {
+        this.contas = contas;
+    }
+
+    // Método para adicionar uma conta ao cliente
+    public void adicionarConta(Conta conta) {
+        contas.add(conta);
+    }
+
+    // Método para remover uma conta do cliente
+    public void removerConta(Conta conta) {
+        contas.remove(conta);
+    }
 }
