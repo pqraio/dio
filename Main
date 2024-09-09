@@ -1,17 +1,62 @@
 public class Main {
 
 	public static void main(String[] args) {
-		Cliente venilton = new Cliente();
-		venilton.setNome("Venilton");
+		// Criando o cliente
+		Cliente Luar = new Cliente();
+		Luar.setNome("Luar");
 		
-		Conta cc = new ContaCorrente(venilton);
-		Conta poupanca = new ContaPoupanca(venilton);
+		// Criando as contas
+		Conta cc = new ContaCorrente(Luar);
+		Conta poupanca = new ContaPoupanca(Luar);
 
-		cc.depositar(100);
-		cc.transferir(100, poupanca);
+		// Operações com a conta corrente
+		cc.depositar(200);
+		cc.transferir(200, poupanca);
 		
+		// Imprimindo extratos
 		cc.imprimirExtrato();
 		poupanca.imprimirExtrato();
 	}
+}
+public class ContaCorrente extends Conta {
 
+	public ContaCorrente(Cliente cliente) {
+		super(cliente);
+	}
+
+	@Override
+	public void sacar(double valor) {
+		double taxa = 0.1; // Exemplo de taxa de saque
+		super.sacar(valor + taxa);
+	}
+
+	// Método para imprimir o extrato da Conta Corrente
+	public void imprimirExtrato() {
+		System.out.println("=== Extrato Conta Corrente ===");
+		imprimirInfosComuns();
+	}
+
+	// Método para imprimir informações específicas da Conta Corrente
+	public void imprimirInfosEspecificas() {
+		System.out.println("=== Conta Corrente ===");
+		imprimirInfosComuns();
+	}
+}
+public class ContaPoupanca extends Conta {
+
+	public ContaPoupanca(Cliente cliente) {
+		super(cliente);
+	}
+
+	// Método para imprimir o extrato da Conta Poupança
+	public void imprimirExtrato() {
+		System.out.println("=== Extrato Conta Poupança ===");
+		imprimirInfosComuns();
+	}
+
+	// Método para imprimir informações específicas da Conta Poupança
+	public void imprimirInfosEspecificas() {
+		System.out.println("=== Conta Poupança ===");
+		imprimirInfosComuns();
+	}
 }
